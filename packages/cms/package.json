@@ -1,9 +1,8 @@
 {
-  "name": "@repo/ui",
+  "name": "@repo/cms",
   "version": "0.0.0",
   "exports": {
-    "./button": "./src/button.tsx",
-    "./Navigation": "./src/Navigation.tsx"
+    "./data.service": "./src/data.service.ts"
   },
   "scripts": {
     "lint": "eslint \"**/*.ts*\" --max-warnings 0"
