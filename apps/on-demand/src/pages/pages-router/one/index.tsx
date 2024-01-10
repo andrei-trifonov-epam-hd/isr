@@ -1,5 +1,4 @@
-import { ClientComponent } from "../../components/ClientComponent";
-import { REVALIDATE_TIME } from "../../constants";
+import { ClientComponent } from "../../../components/ClientComponent";
 import { api, now } from "@repo/cms/data.service";
 import Navigation from "@repo/ui/Navigation";
 
@@ -17,17 +16,12 @@ export const getStaticProps = async () => {
 
   return {
     props: { time, title },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    revalidate: REVALIDATE_TIME, // In seconds
   };
 };
 
 const Blog = ({ time, title }: { time: string; title: string }) => (
   <>
-    <Navigation revalidate={false} />
-    <h1>ISR | Time-Based ({REVALIDATE_TIME}s) | Pages Router</h1>
+    <h1>ISR | On-Demand | Pages Router | One</h1>
     <div>
       <div>
         <h2>Server Component</h2>

@@ -5,8 +5,8 @@ import { REVALIDATE_TIME } from "../constants";
 const RootLayout = ({ children }: { children: ReactNode }) => (
   <html lang="en">
     <body>
+      <Navigation revalidate={false} />
       <h1>ISR | Time-Based ({REVALIDATE_TIME}s) | App Router</h1>
-      <Navigation />
       {children}
     </body>
   </html>

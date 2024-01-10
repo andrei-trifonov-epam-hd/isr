@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@repo/ui/button";
 import { api, regenerateData } from "@repo/cms/data.service";
 
-export const ClientComponent = ({ title }: { title: string }) => {
+export const ClientComponent = () => {
   const [response, setResponse] = useState<string | null>(null);
   const [error, setError] = useState<string | undefined>();
 
@@ -21,7 +21,7 @@ export const ClientComponent = ({ title }: { title: string }) => {
   return (
     <div>
       <h2>Client Component</h2>
-      <Button onClick={async () => void (await regenerateData(title))}>
+      <Button onClick={async () => void (await regenerateData())}>
         Refresh data!
       </Button>
       <Button onClick={onClick}>Get Data!</Button>

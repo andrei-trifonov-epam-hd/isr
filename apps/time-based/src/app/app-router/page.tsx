@@ -21,7 +21,7 @@ const Page = async () => {
         <div>Page Title: {title}</div>
       </div>
       <div>
-        <ClientComponent title={title} />
+        <ClientComponent />
       </div>
     </div>
   );

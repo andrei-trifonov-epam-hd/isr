@@ -1,3 +1,4 @@
+import { faker } from "@faker-js/faker";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { API_HOST, CMS_HOST, LIVEWIRE_SECURITY } from "./constants";
 
@@ -22,19 +23,13 @@ export const cms = async (path: string, delay: boolean | number = true) => {
 
 export const now = () => new Date().toUTCString();
 
-export const regenerateData = async (prev: string = "Just something...") =>
+export const regenerateData = async () =>
   fetch("https://6594a7821493b011606ab970.mockapi.io/content/1", {
     method: "PUT",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ name: prev + getRandomIntInclusive(0, 9) }),
+    body: JSON.stringify({ name: faker.person.fullName() }),
   });
 
 export const revalidate = (path: string) => {};
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const getRandomIntInclusive = (min: number, max: number) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-};

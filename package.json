@@ -15,7 +15,8 @@
     "test": "turbo run test",
     "docker:build": "cross-env COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker compose -f docker-compose.yml build --pull && docker image prune -f",
     "docker:start": "docker compose -f docker-compose.yml up -d",
-    "docker:stop": "docker compose down -v --rmi local"
+    "docker:stop": "docker compose down -v --rmi local",
+    "docker:deploy": "docker tag isr-time-based atacr.azurecr.io/isr-time-based:v1 && docker tag isr-on-demand atacr.azurecr.io/isr-on-demand:v1 && docker push atacr.azurecr.io/isr-time-based:v1 && docker push atacr.azurecr.io/isr-on-demand:v1"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
@@ -27,5 +28,8 @@
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=7.0.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1"
   }
 }

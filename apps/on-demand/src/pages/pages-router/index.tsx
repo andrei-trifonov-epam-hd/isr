@@ -22,7 +22,6 @@ export const getStaticProps = async () => {
 const Blog = ({ time, title }: { time: string; title: string }) => (
   <>
     <h1>ISR | On-Demand | Pages Router</h1>
-    <Navigation />
     <div>
       <div>
         <h2>Server Component</h2>
@@ -30,7 +29,7 @@ const Blog = ({ time, title }: { time: string; title: string }) => (
         <div>Page Title: {title}</div>
       </div>
       <div>
-        <ClientComponent title={title} />
+        <ClientComponent />
       </div>
     </div>
   </>
